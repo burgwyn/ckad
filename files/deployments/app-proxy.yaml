@@ -9,7 +9,11 @@ spec:
   selector:
     matchLabels:
       app: proxy
-  strategy: {}
+  strategy:
+    rollingUpdate:
+      maxSurge: 40%
+      maxUnavailable: 40%
+    type: RollingUpdate
   template:
     metadata:
       labels:
