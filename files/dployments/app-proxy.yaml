@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: proxy
+  name: deployment-nginx-1-9
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: proxy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+      - image: nginx:1.9
+        name: nginx
+        resources: {}
